@@ -9,3 +9,29 @@ async function fetchWeatherData(location) {
     console.log(error);
   }
 }
+
+const data = await fetchWeatherData("paris");
+
+function parseWeatherData(weatherData) {
+  const address = weatherData.address;
+  const temp = weatherData.currentConditions.temp;
+  const condition = weatherData.currentConditions.conditions;
+  const date = weatherData.days[0].datetime;
+  const time = weatherData.currentConditions.datetime;
+  const description = weatherData.description;
+  const hourlyTemps = weatherData.days[0].hours;
+  const dailyTemps = weatherData.days;
+
+  return {
+    address,
+    temp,
+    condition,
+    date,
+    time,
+    description,
+    hourlyTemps,
+    dailyTemps,
+  };
+}
+
+parseWeatherData(data);
