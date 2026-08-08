@@ -10,7 +10,7 @@ async function fetchWeatherData(location) {
   }
 }
 
-const data = await fetchWeatherData("paris");
+let data = await fetchWeatherData("paris");
 
 function parseWeatherData(weatherData) {
   const address = weatherData.address;
@@ -35,3 +35,11 @@ function parseWeatherData(weatherData) {
 }
 
 parseWeatherData(data);
+
+const searchInput = document.getElementsByClassName("search")[0];
+const searchBtn = document.getElementsByClassName("search-btn")[0];
+
+searchBtn.addEventListener("click", async () => {
+  data = await fetchWeatherData(searchInput.value);
+  parseWeatherData(data);
+});
