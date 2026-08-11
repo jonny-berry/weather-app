@@ -1,8 +1,16 @@
 * {
   font-family: "literata";
+  box-sizing: border-box;
+  line-height: 1;
 }
 
 body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 800;
   margin: 0;
 }
 
@@ -13,6 +21,7 @@ p {
 }
 
 button {
+  cursor: pointer;
   padding: 0;
 }
 
@@ -67,4 +76,32 @@ button {
   align-items: center;
   background-color: rgba(255, 255, 255, 0);
   border: none;
+}
+
+.temp-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.curr-temp {
+  color: #007589;
+}
+
+.temp-unit-container {
+  display: flex;
+  margin: 0 0 2.5rem 0.5rem;
+}
+
+.temp-unit-btn {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #DADADA;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+#active-temp-unit-btn {
+  font-weight: 700;
+  color: #007589;
 }
