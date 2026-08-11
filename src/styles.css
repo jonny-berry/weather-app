@@ -111,13 +111,16 @@ button {
   color: #007589;
 }
 
+.card {
+  background-color: #F4F4F4;
+  border: 1px solid #C7C7C7;
+  border-radius: 10px;
+}
+
 .curr-weather-summary-display {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 2rem;
-  background-color: #F4F4F4;
-  border: 1px solid #C7C7C7;
-  border-radius: 10px;
 }
 
 .curr-conditions,
@@ -135,4 +138,12 @@ button {
 .date {
   border-left: 1px solid #C7C7C7;
   border-right: 1px solid #C7C7C7;
+}
+
+.description-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
