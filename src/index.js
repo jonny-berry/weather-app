@@ -1,3 +1,5 @@
+import "./styles.css"
+
 async function fetchWeatherData(location) {
   try {
     const response = await fetch(
@@ -10,7 +12,7 @@ async function fetchWeatherData(location) {
   }
 }
 
-let data = await fetchWeatherData("paris");
+let data = await fetchWeatherData("Paris");
 
 function parseWeatherData(weatherData) {
   const address = weatherData.address;
@@ -36,10 +38,10 @@ function parseWeatherData(weatherData) {
 
 parseWeatherData(data);
 
-const searchInput = document.getElementsByClassName("search")[0];
-const searchBtn = document.getElementsByClassName("search-btn")[0];
+// const searchInput = document.getElementsByClassName("search")[0];
+// const searchBtn = document.getElementsByClassName("search-btn")[0];
 
-searchBtn.addEventListener("click", async () => {
-  data = await fetchWeatherData(searchInput.value);
-  parseWeatherData(data);
-});
+// searchBtn.addEventListener("click", async () => {
+//   data = await fetchWeatherData(searchInput.value);
+//   parseWeatherData(data);
+// });
