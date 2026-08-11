@@ -15,6 +15,7 @@ h1 {
 }
 
 p {
+  color: #111111;
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
@@ -51,6 +52,10 @@ button {
 
 .stripe:nth-child(4) {
   background-color: #007589;
+}
+
+.content {
+  margin: 1rem;
 }
 
 .toolbar {
@@ -104,4 +109,30 @@ button {
 #active-temp-unit-btn {
   font-weight: 700;
   color: #007589;
+}
+
+.curr-weather-summary-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 2rem;
+  background-color: #F4F4F4;
+  border: 1px solid #C7C7C7;
+  border-radius: 10px;
+}
+
+.curr-conditions,
+.date,
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #111111;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.date {
+  border-left: 1px solid #C7C7C7;
+  border-right: 1px solid #C7C7C7;
 }
