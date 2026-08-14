@@ -201,3 +201,15 @@ button {
 .active-daily-condition-card {
   border: 1px solid #C7C7C7;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.github-logo {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  height: 1.25rem;
+}
