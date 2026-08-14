@@ -147,3 +147,35 @@ button {
   font-size: 1rem;
   padding: 0.5rem;
 }
+
+.upcoming-conditions {
+  padding: 0.5rem;
+}
+
+.upcoming-conditions-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+  gap: 1rem;
+}
+
+.active-upcoming {
+  text-decoration: underline;
+  text-decoration-color: #D9D9D9;
+}
+
+.upcoming-temp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upcoming-temps {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr 1fr;
+}
+
+.upcoming-conditions-icon {
+  width: 3rem;
+}
