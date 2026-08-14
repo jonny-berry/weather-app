@@ -179,3 +179,25 @@ button {
 .upcoming-conditions-icon {
   width: 3rem;
 }
+
+.daily-conditions {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.daily-conditions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F4F4F4;
+  border-radius: 10px;
+}
+
+.daily-conditions-icon {
+  width: 3rem;
+}
+
+.active-daily-condition-card {
+  border: 1px solid #C7C7C7;
+}
