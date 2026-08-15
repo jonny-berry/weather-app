@@ -111,10 +111,17 @@ button {
   color: #007589;
 }
 
+.weather-info-grid-container {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 2fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
 .card {
   background-color: #F4F4F4;
   border: 1px solid #C7C7C7;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .curr-weather-summary-display {
@@ -174,6 +181,8 @@ button {
 .upcoming-temps {
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .upcoming-conditions-icon {
@@ -192,6 +201,7 @@ button {
   align-items: center;
   background-color: #F4F4F4;
   border-radius: 10px;
+  padding: 0.25rem;
 }
 
 .daily-conditions-icon {
