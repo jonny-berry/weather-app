@@ -39,15 +39,15 @@ button {
 }
 
 .stripe:nth-child(1) {
-  background-color: #00D9FF;
+  background-color: #00d9ff;
 }
 
 .stripe:nth-child(2) {
-  background-color: #00C3E5;
+  background-color: #00c3e5;
 }
 
 .stripe:nth-child(3) {
-  background-color: #009AB5;
+  background-color: #009ab5;
 }
 
 .stripe:nth-child(4) {
@@ -101,12 +101,12 @@ button {
 .temp-unit-btn {
   font-size: 1rem;
   font-weight: 400;
-  color: #DADADA;
+  color: #dadada;
   background-color: rgba(255, 255, 255, 0);
   border: none;
 }
 
-#active-temp-unit-btn {
+.active-temp-unit {
   font-weight: 700;
   color: #007589;
 }
@@ -119,18 +119,18 @@ button {
 }
 
 .card {
-  background-color: #F4F4F4;
-  border: 1px solid #C7C7C7;
+  background-color: #f4f4f4;
+  border: 1px solid #c7c7c7;
   border-radius: 15px;
 }
 
-.curr-weather-summary-display {
+.weather-summary {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 2rem;
 }
 
-.curr-conditions,
+.curr-condition,
 .date,
 .time {
   display: flex;
@@ -143,8 +143,8 @@ button {
 }
 
 .date {
-  border-left: 1px solid #C7C7C7;
-  border-right: 1px solid #C7C7C7;
+  border-left: 1px solid #c7c7c7;
+  border-right: 1px solid #c7c7c7;
 }
 
 .description-container {
@@ -155,11 +155,11 @@ button {
   padding: 0.5rem;
 }
 
-.upcoming-conditions {
+.hourly-forecast {
   padding: 0.5rem;
 }
 
-.upcoming-conditions-header {
+.hourly-forecast-tabs {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,49 +167,49 @@ button {
   gap: 1rem;
 }
 
-.active-upcoming {
+.active-hourly-forecast-tab {
   text-decoration: underline;
-  text-decoration-color: #D9D9D9;
+  text-decoration-color: #d9d9d9;
 }
 
-.upcoming-temp-container {
+.hourly-temps-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.upcoming-temps {
+.hourly-temps-container {
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
 }
 
-.upcoming-conditions-icon {
+.hourly-temps-icon {
   width: 3rem;
 }
 
-.daily-conditions {
+.daily-forecasts {
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr 1fr;
   gap: 0.5rem;
 }
 
-.daily-conditions-container {
+.daily-forecast-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   border-radius: 10px;
   padding: 0.25rem;
 }
 
-.daily-conditions-icon {
+.daily-forecast-icon {
   width: 3rem;
 }
 
-.active-daily-condition-card {
-  border: 1px solid #C7C7C7;
+.active-daily-item {
+  border: 1px solid #c7c7c7;
 }
 
 footer {

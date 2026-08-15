@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- Literata font import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="stripes-container">
@@ -20,100 +23,123 @@
     <div class="content">
       <div class="toolbar">
         <div class="location-container">
-          <img src="icons/location-pin.svg" class="location-pin" alt="">
+          <img src="icons/location-pin.svg" class="location-pin" alt="" />
           <p>Paris</p>
         </div>
         <button class="search-btn">
-          <img src="icons/search.svg" alt="">
+          <img src="icons/search.svg" alt="" />
         </button>
+      </div>
+      <div class="temp-display">
+        <h1 class="curr-temp">86</h1>
+        <div class="temp-unit-container">
+          <button class="temp-unit-btn active-temp-unit">°F</button>
+          <button class="temp-unit-btn">°C</button>
         </div>
-        <div class="temp-display">
-          <h1 class="curr-temp">86</h1>
-          <div class="temp-unit-container">
-            <button class="temp-unit-btn" id="active-temp-unit-btn">
-              °F
-            </button>
-            <button class="temp-unit-btn">
-              °C
-            </button>
-          </div>
+      </div>
+      <div class="weather-info-grid-container">
+        <div class="weather-summary card">
+          <div class="curr-condition">Rainy</div>
+          <div class="date">7/17/26</div>
+          <div class="time">2:26PM</div>
         </div>
-        <div class="weather-info-grid-container">
-          <div class="curr-weather-summary-display card">
-            <div class="curr-conditions">
-              Rainy
-            </div>
-            <div class="date">
-              7/17/26
-            </div>
-            <div class="time">
-              2:26PM
-            </div>
+        <div class="description-container card">
+          <p class="description">
+            Rainy conditions will continue for the rest of the day. Wind gusts
+            are up to 13 mph.
+          </p>
+        </div>
+        <div class="hourly-forecast card">
+          <div class="hourly-forecast-tabs">
+            <p class="active-hourly-forecast-tab">Temperature</p>
+            <p>Precipitation</p>
+            <p>Wind</p>
           </div>
-          <div class="description-container card">
-            <p class="description">
-              Rainy conditions will continue for the rest of the day. Wind gusts are up to 13 mph.
-            </p>
-          </div>
-          <div class="upcoming-conditions card">
-            <div class="upcoming-conditions-header">
-              <p class="active-upcoming">Temperature</p>
-              <p>Precipitation</p>
-              <p>Wind</p>
+          <div class="hourly-temps-container">
+            <div class="hourly-temps-item">
+              <p>Now</p>
+              <img
+                src="icons/weather/rain.svg"
+                class="hourly-temps-icon"
+                alt=""
+              />
+              <p>86°</p>
             </div>
-            <div class="upcoming-temps">
-              <div class="upcoming-temp-container">
-                <p>Now</p>
-                <img src="icons/weather/rain.svg" class="upcoming-conditions-icon" alt="">
-                <p>86°</p>
-              </div>
-              <div class="upcoming-temp-container">
-                <p>Now</p>
-                <img src="icons/weather/rain.svg" class="upcoming-conditions-icon" alt="">
-                <p>86°</p>
-              </div>
-              <div class="upcoming-temp-container">
-                <p>Now</p>
-                <img src="icons/weather/rain.svg" class="upcoming-conditions-icon" alt="">
-                <p>86°</p>
-              </div>
-              <div class="upcoming-temp-container">
-                <p>Now</p>
-                <img src="icons/weather/rain.svg" class="upcoming-conditions-icon" alt="">
-                <p>86°</p>
-              </div>
+            <div class="hourly-temps-item">
+              <p>Now</p>
+              <img
+                src="icons/weather/rain.svg"
+                class="hourly-temps-icon"
+                alt=""
+              />
+              <p>86°</p>
             </div>
-          </div>
-          <div class="daily-conditions">
-            <div class="daily-conditions-container active-daily-condition-card">
-              <p>Fri</p>
-              <img src="icons/weather/rain.svg" class="daily-conditions-icon" alt="">
-              <p>89°- 74°</p>
+            <div class="hourly-temps-item">
+              <p>Now</p>
+              <img
+                src="icons/weather/rain.svg"
+                class="hourly-temps-icon"
+                alt=""
+              />
+              <p>86°</p>
             </div>
-            <div class="daily-conditions-container">
-              <p>Fri</p>
-              <img src="icons/weather/rain.svg" class="daily-conditions-icon" alt="">
-              <p>89°- 74°</p>
-            </div>
-            <div class="daily-conditions-container">
-              <p>Fri</p>
-              <img src="icons/weather/rain.svg" class="daily-conditions-icon" alt="">
-              <p>89°- 74°</p>
-            </div>
-            <div class="daily-conditions-container">
-              <p>Fri</p>
-              <img src="icons/weather/rain.svg" class="daily-conditions-icon" alt="">
-              <p>89°- 74°</p>
+            <div class="hourly-temps-item">
+              <p>Now</p>
+              <img
+                src="icons/weather/rain.svg"
+                class="hourly-temps-icon"
+                alt=""
+              />
+              <p>86°</p>
             </div>
           </div>
         </div>
-        <footer>
-          <a href="https://github.com/jonny-berry" target="_blank">
-            <button class="github-logo">
-              <img src="icons/github.svg" alt="">
-            </button>
-          </a>
-        </footer>
+        <div class="daily-forecasts">
+          <div class="daily-forecast-item active-daily-item">
+            <p>Fri</p>
+            <img
+              src="icons/weather/rain.svg"
+              class="daily-forecast-icon"
+              alt=""
+            />
+            <p>89°- 74°</p>
+          </div>
+          <div class="daily-forecast-item">
+            <p>Fri</p>
+            <img
+              src="icons/weather/rain.svg"
+              class="daily-forecast-icon"
+              alt=""
+            />
+            <p>89°- 74°</p>
+          </div>
+          <div class="daily-forecast-item">
+            <p>Fri</p>
+            <img
+              src="icons/weather/rain.svg"
+              class="daily-forecast-icon"
+              alt=""
+            />
+            <p>89°- 74°</p>
+          </div>
+          <div class="daily-forecast-item">
+            <p>Fri</p>
+            <img
+              src="icons/weather/rain.svg"
+              class="daily-forecast-icon"
+              alt=""
+            />
+            <p>89°- 74°</p>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <a href="https://github.com/jonny-berry" target="_blank">
+          <button class="github-logo">
+            <img src="icons/github.svg" alt="" />
+          </button>
+        </a>
+      </footer>
     </div>
   </body>
 </html>
