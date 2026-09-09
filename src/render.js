@@ -1,5 +1,6 @@
 import pinIcon from "./icons/location-pin.svg";
 import searchIcon from "./icons/search.svg";
+import rainIcon from "./icons/weather/rain.svg";
 
 export function renderWeatherPage() {
   renderWeatherStripes();
@@ -11,6 +12,7 @@ export function renderWeatherPage() {
   renderToolbar(contentWrapper);
   renderTempDisplay(contentWrapper);
   renderWeatherGrid(contentWrapper);
+  renderHourlyForecast(contentWrapper);
 }
 
 function renderWeatherStripes() {
@@ -128,4 +130,54 @@ function renderDescription(gridContainer) {
   description.className = 'description';
   description.textContent = 'Rainy conditions will continue for the rest of the day. Wind gusts are up to 13 mph.';
   descriptionContainer.appendChild(description);
+}
+
+function renderHourlyForecast(contentWrapper) {
+  const hourlyForecastCard = document.createElement('div');
+  hourlyForecastCard.className = 'hourly-forecast card';
+  contentWrapper.appendChild(hourlyForecastCard);
+
+  const tabsContainer = document.createElement('div');
+  tabsContainer.className = 'hourly-forecast-tabs';
+  hourlyForecastCard.appendChild(tabsContainer);
+
+  const temperatureTab = document.createElement('p');
+  temperatureTab.className = 'active-hourly-forecast-tab';
+  temperatureTab.textContent = 'Temperature';
+  tabsContainer.appendChild(temperatureTab);
+
+  const precipitationTab = document.createElement('p');
+  precipitationTab.textContent = 'Precipitation';
+  tabsContainer.appendChild(precipitationTab);
+
+  const windTab = document.createElement('p');
+  windTab.textContent = 'Wind';
+  tabsContainer.appendChild(windTab);
+
+  const itemsContainer = document.createElement('div');
+  itemsContainer.className = 'hourly-temps-container';
+  hourlyForecastCard.appendChild(itemsContainer);
+
+  for (let i = 0; i < 4; i++) {
+    renderHourlyForecastItem(itemsContainer, 'Now', rainIcon, '86°');
+  }
+}
+
+function renderHourlyForecastItem(itemsContainer, time, icon, temp) {
+  const item = document.createElement('div');
+  item.className = 'hourly-temps-item';
+  itemsContainer.appendChild(item);
+
+  const timeLabel = document.createElement('p');
+  timeLabel.textContent = time;
+  item.appendChild(timeLabel);
+
+  const iconImg = document.createElement('img');
+  iconImg.src = icon;
+  iconImg.className = 'hourly-temps-icon';
+  item.appendChild(iconImg);
+
+  const tempLabel = document.createElement('p');
+  tempLabel.textContent = temp;
+  item.appendChild(tempLabel);
 }
