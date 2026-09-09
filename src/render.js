@@ -1,21 +1,22 @@
 import pinIcon from "./icons/location-pin.svg";
 import searchIcon from "./icons/search.svg";
 import rainIcon from "./icons/weather/rain.svg";
+import githubIcon from "./icons/github.svg";
 
 export function renderWeatherPage() {
-  renderWeatherStripes();
+  const gridContainer = document.createElement('div');
+  gridContainer.className = 'weather-info-grid-container';
 
   const contentWrapper = document.createElement('div');
   contentWrapper.className = 'content';
-  document.body.appendChild(contentWrapper);
 
+  renderWeatherStripes();
+  document.body.appendChild(contentWrapper);
   renderToolbar(contentWrapper);
   renderTempDisplay(contentWrapper);
-
-  const gridContainer = document.createElement('div');
-  gridContainer.className = 'weather-info-grid-container';
   contentWrapper.appendChild(gridContainer);
   renderWeatherGrid(gridContainer);
+  renderFooter();
 }
 
 function renderWeatherStripes() {
@@ -210,4 +211,22 @@ function renderDailyForecastItem(dailyForecastContainer, day, icon, range, isAct
   const rangeLabel = document.createElement('p');
   rangeLabel.textContent = range;
   item.appendChild(rangeLabel);
+}
+
+function renderFooter() {
+  const footer = document.createElement('footer');
+  document.body.appendChild(footer);
+
+  const githubLink = document.createElement('a');
+  githubLink.href = 'https://github.com/jonny-berry';
+  githubLink.target = '_blank';
+  footer.appendChild(githubLink);
+
+  const githubBtn = document.createElement('button');
+  githubBtn.className = 'github-logo';
+  githubLink.appendChild(githubBtn);
+
+  const githubImg = document.createElement('img');
+  githubImg.src = githubIcon;
+  githubBtn.appendChild(githubImg);
 }
