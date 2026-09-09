@@ -1,10 +1,19 @@
+import pinIcon from "./icons/location-pin.svg";
+import searchIcon from "./icons/search.svg";
+
 export function renderWeatherPage() {
-  renderStripes();
+  renderWeatherStripes();
+
+  const contentWrapper = document.createElement('div');
+  contentWrapper.className = 'content';
+  document.body.appendChild(contentWrapper);
+
+  renderToolbar(contentWrapper);
 }
 
-function renderStripes() {
+function renderWeatherStripes() {
   const container = document.createElement('div');
-  container.className = "stripes-container";
+  container.className = "weather-stripes-container";
   document.body.appendChild(container);
 
   // Stripes are numbered from top to bottom
@@ -23,4 +32,32 @@ function renderStripes() {
   const stripeFour = document.createElement('div');
   stripeFour.className = "stripe";
   container.appendChild(stripeFour);
+}
+
+
+function renderToolbar(contentWrapper) {
+  const toolbar = document.createElement('div');
+  toolbar.className = 'toolbar';
+  contentWrapper.appendChild(toolbar);
+  
+  const locationInfo = document.createElement('div');
+  locationInfo.className = "location-info";
+  toolbar.appendChild(locationInfo);
+  
+  const locationPin = document.createElement('img');
+  locationPin.src = pinIcon;
+  locationPin.className = "location-pin";
+  locationInfo.appendChild(locationPin);
+
+  const locationName = document.createElement('p');
+  locationName.textContent = "Paris";
+  locationInfo.appendChild(locationName);
+
+  const searchBtn = document.createElement('button');
+  searchBtn.className = "search-btn";
+
+  const searchImg = document.createElement('img');
+  searchImg.src = searchIcon;
+  searchBtn.appendChild(searchImg);
+  toolbar.appendChild(searchBtn);
 }

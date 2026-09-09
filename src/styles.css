@@ -26,7 +26,7 @@ button {
   padding: 0;
 }
 
-.stripes-container {
+.weather-stripes-container {
   display: flex;
   flex-direction: column;
   background-color: aqua;
