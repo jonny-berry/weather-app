@@ -11,8 +11,11 @@ export function renderWeatherPage() {
 
   renderToolbar(contentWrapper);
   renderTempDisplay(contentWrapper);
-  renderWeatherGrid(contentWrapper);
-  renderHourlyForecast(contentWrapper);
+
+  const gridContainer = document.createElement('div');
+  gridContainer.className = 'weather-info-grid-container';
+  contentWrapper.appendChild(gridContainer);
+  renderWeatherGrid(gridContainer);
 }
 
 function renderWeatherStripes() {
@@ -91,13 +94,11 @@ function renderTempDisplay(contentWrapper) {
   tempUnitContainer.appendChild(celsius);
 }
 
-function renderWeatherGrid(contentWrapper) {
-  const gridContainer = document.createElement('div');
-  gridContainer.className = 'weather-info-grid-container';
-  contentWrapper.appendChild(gridContainer);
-
+function renderWeatherGrid(gridContainer) {
   renderWeatherSummary(gridContainer);
   renderDescription(gridContainer);
+  renderHourlyForecast(gridContainer);
+  renderDailyForecast(gridContainer);
 }
 
 function renderWeatherSummary(gridContainer) {
@@ -180,4 +181,33 @@ function renderHourlyForecastItem(itemsContainer, time, icon, temp) {
   const tempLabel = document.createElement('p');
   tempLabel.textContent = temp;
   item.appendChild(tempLabel);
+}
+
+function renderDailyForecast(contentWrapper) {
+  const dailyForecastContainer = document.createElement('div');
+  dailyForecastContainer.className = 'daily-forecasts';
+  contentWrapper.appendChild(dailyForecastContainer);
+
+  for (let i = 0; i < 4; i++) {
+    renderDailyForecastItem(dailyForecastContainer, 'Fri', rainIcon, '89°- 74°', i === 0);
+  }
+}
+
+function renderDailyForecastItem(dailyForecastContainer, day, icon, range, isActive) {
+  const item = document.createElement('div');
+  item.className = isActive ? 'daily-forecast-item active-daily-item' : 'daily-forecast-item';
+  dailyForecastContainer.appendChild(item);
+
+  const dayLabel = document.createElement('p');
+  dayLabel.textContent = day;
+  item.appendChild(dayLabel);
+
+  const iconImg = document.createElement('img');
+  iconImg.src = icon;
+  iconImg.className = 'daily-forecast-icon';
+  item.appendChild(iconImg);
+
+  const rangeLabel = document.createElement('p');
+  rangeLabel.textContent = range;
+  item.appendChild(rangeLabel);
 }
