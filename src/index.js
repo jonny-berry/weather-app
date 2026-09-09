@@ -1,4 +1,5 @@
 import "./styles.css"
+import { renderWeatherPage } from "./render.js"
 
 async function fetchWeatherData(location) {
   try {
@@ -38,10 +39,4 @@ function parseWeatherData(weatherData) {
 
 parseWeatherData(data);
 
-// const searchInput = document.getElementsByClassName("search")[0];
-// const searchBtn = document.getElementsByClassName("search-btn")[0];
-
-// searchBtn.addEventListener("click", async () => {
-//   data = await fetchWeatherData(searchInput.value);
-//   parseWeatherData(data);
-// });
+renderWeatherPage();
