@@ -10,6 +10,7 @@ export function renderWeatherPage() {
 
   renderToolbar(contentWrapper);
   renderTempDisplay(contentWrapper);
+  renderWeatherGrid(contentWrapper);
 }
 
 function renderWeatherStripes() {
@@ -88,3 +89,43 @@ function renderTempDisplay(contentWrapper) {
   tempUnitContainer.appendChild(celsius);
 }
 
+function renderWeatherGrid(contentWrapper) {
+  const gridContainer = document.createElement('div');
+  gridContainer.className = 'weather-info-grid-container';
+  contentWrapper.appendChild(gridContainer);
+
+  renderWeatherSummary(gridContainer);
+  renderDescription(gridContainer);
+}
+
+function renderWeatherSummary(gridContainer) {
+  const summaryCard = document.createElement('div');
+  summaryCard.className = 'weather-summary card';
+  gridContainer.appendChild(summaryCard);
+
+  const currCondition = document.createElement('div');
+  currCondition.className = 'curr-condition';
+  currCondition.textContent = 'Rainy';
+  summaryCard.appendChild(currCondition);
+
+  const date = document.createElement('div');
+  date.className = 'date';
+  date.textContent = '7/17/26';
+  summaryCard.appendChild(date);
+
+  const time = document.createElement('div');
+  time.className = 'time';
+  time.textContent = '2:26PM';
+  summaryCard.appendChild(time);
+}
+
+function renderDescription(gridContainer) {
+  const descriptionContainer = document.createElement('div');
+  descriptionContainer.className = 'description-container card';
+  gridContainer.appendChild(descriptionContainer);
+
+  const description = document.createElement('p');
+  description.className = 'description';
+  description.textContent = 'Rainy conditions will continue for the rest of the day. Wind gusts are up to 13 mph.';
+  descriptionContainer.appendChild(description);
+}
