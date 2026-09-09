@@ -9,6 +9,7 @@ export function renderWeatherPage() {
   document.body.appendChild(contentWrapper);
 
   renderToolbar(contentWrapper);
+  renderTempDisplay(contentWrapper);
 }
 
 function renderWeatherStripes() {
@@ -61,3 +62,29 @@ function renderToolbar(contentWrapper) {
   searchBtn.appendChild(searchImg);
   toolbar.appendChild(searchBtn);
 }
+
+function renderTempDisplay(contentWrapper) {
+  const sectionContainer = document.createElement('div');
+  sectionContainer.className = 'temp-display';
+  contentWrapper.appendChild(sectionContainer);
+
+  const currTemp = document.createElement('h1');
+  currTemp.className = 'curr-temp';
+  currTemp.textContent = '86';
+  sectionContainer.appendChild(currTemp);
+
+  const tempUnitContainer = document.createElement('div');
+  tempUnitContainer.className = 'temp-unit-container';
+  sectionContainer.appendChild(tempUnitContainer);
+
+  const fahrenheit = document.createElement('button');
+  fahrenheit.classList = 'temp-unit-btn active-temp-unit';
+  fahrenheit.textContent = '°F'
+  tempUnitContainer.appendChild(fahrenheit);
+
+  const celsius = document.createElement('button');
+  celsius.className = 'temp-unit-btn';
+  celsius.textContent = '°C'
+  tempUnitContainer.appendChild(celsius);
+}
+
