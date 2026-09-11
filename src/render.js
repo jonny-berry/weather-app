@@ -1,6 +1,6 @@
+import { weatherData } from "./api.js";
 import pinIcon from "./icons/location-pin.svg";
 import searchIcon from "./icons/search.svg";
-import rainIcon from "./icons/weather/rain.svg";
 import githubIcon from "./icons/github.svg";
 
 export function renderWeatherPage() {
@@ -57,7 +57,7 @@ function renderToolbar(contentWrapper) {
   locationInfo.appendChild(locationPin);
 
   const locationName = document.createElement("p");
-  locationName.textContent = "Paris";
+  locationName.textContent = weatherData.address;
   locationInfo.appendChild(locationName);
 
   const searchBtn = document.createElement("button");
@@ -76,7 +76,7 @@ function renderTempDisplay(contentWrapper) {
 
   const currTemp = document.createElement("h1");
   currTemp.className = "curr-temp";
-  currTemp.textContent = "86";
+  currTemp.textContent = weatherData.temp;
   sectionContainer.appendChild(currTemp);
 
   const tempUnitContainer = document.createElement("div");
@@ -108,17 +108,17 @@ function renderWeatherSummary(gridContainer) {
 
   const currCondition = document.createElement("div");
   currCondition.className = "curr-condition";
-  currCondition.textContent = "Rainy";
+  currCondition.textContent = weatherData.condition;
   summaryCard.appendChild(currCondition);
 
   const date = document.createElement("div");
   date.className = "date";
-  date.textContent = "7/17/26";
+  date.textContent = weatherData.date;
   summaryCard.appendChild(date);
 
   const time = document.createElement("div");
   time.className = "time";
-  time.textContent = "2:26PM";
+  time.textContent = weatherData.time;
   summaryCard.appendChild(time);
 }
 
@@ -129,12 +129,11 @@ function renderDescription(gridContainer) {
 
   const description = document.createElement("p");
   description.className = "description";
-  description.textContent =
-    "Rainy conditions will continue for the rest of the day. Wind gusts are up to 13 mph.";
+  description.textContent = weatherData.description;
   descriptionContainer.appendChild(description);
 }
 
-function renderHourlyForecast(contentWrapper) {
+async function renderHourlyForecast(contentWrapper) {
   const hourlyForecastCard = document.createElement("div");
   hourlyForecastCard.className = "hourly-forecast card";
   contentWrapper.appendChild(hourlyForecastCard);
@@ -160,8 +159,18 @@ function renderHourlyForecast(contentWrapper) {
   itemsContainer.className = "hourly-temps-container";
   hourlyForecastCard.appendChild(itemsContainer);
 
-  for (let i = 0; i < 4; i++) {
-    renderHourlyForecastItem(itemsContainer, "Now", rainIcon, "86°");
+  const numHours = 4;
+
+  for (let i = 0; i < numHours; i++) {
+    let icon = await import(
+      `./icons/weather/${weatherData.hourlyTemps[i].icon}.svg`
+    );
+    renderHourlyForecastItem(
+      itemsContainer,
+      weatherData.hourlyTemps[i].datetime,
+      icon,
+      weatherData.hourlyTemps[i].temp,
+    );
   }
 }
 
@@ -171,30 +180,40 @@ function renderHourlyForecastItem(itemsContainer, time, icon, temp) {
   itemsContainer.appendChild(item);
 
   const timeLabel = document.createElement("p");
-  timeLabel.textContent = time;
+  if (time === "00:00:00") {
+    timeLabel.textContent = "Now";
+  } else {
+    timeLabel.textContent = time;
+  }
   item.appendChild(timeLabel);
 
   const iconImg = document.createElement("img");
-  iconImg.src = icon;
+  iconImg.src = icon.default;
   iconImg.className = "hourly-temps-icon";
   item.appendChild(iconImg);
 
   const tempLabel = document.createElement("p");
-  tempLabel.textContent = temp;
+  tempLabel.textContent = `${temp}°`;
   item.appendChild(tempLabel);
 }
 
-function renderDailyForecast(contentWrapper) {
+async function renderDailyForecast(contentWrapper) {
   const dailyForecastContainer = document.createElement("div");
   dailyForecastContainer.className = "daily-forecasts";
   contentWrapper.appendChild(dailyForecastContainer);
 
-  for (let i = 0; i < 4; i++) {
+  const numDays = 4;
+
+  for (let i = 0; i < numDays; i++) {
+    const icon = await import(
+      `./icons/weather/${weatherData.dailyTemps[i].icon}.svg`
+    );
     renderDailyForecastItem(
       dailyForecastContainer,
-      "Fri",
-      rainIcon,
-      "89°- 74°",
+      weatherData.dailyTemps[i].datetime,
+      icon,
+      weatherData.dailyTemps[i].tempmax,
+      weatherData.dailyTemps[i].tempmin,
       i === 0,
     );
   }
@@ -204,7 +223,8 @@ function renderDailyForecastItem(
   dailyForecastContainer,
   day,
   icon,
-  range,
+  maxTemp,
+  minTemp,
   isActive,
 ) {
   const item = document.createElement("div");
@@ -218,12 +238,12 @@ function renderDailyForecastItem(
   item.appendChild(dayLabel);
 
   const iconImg = document.createElement("img");
-  iconImg.src = icon;
+  iconImg.src = icon.default;
   iconImg.className = "daily-forecast-icon";
   item.appendChild(iconImg);
 
   const rangeLabel = document.createElement("p");
-  rangeLabel.textContent = range;
+  rangeLabel.textContent = `${minTemp}° - ${maxTemp}°`;
   item.appendChild(rangeLabel);
 }
 

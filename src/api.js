@@ -10,17 +10,17 @@ async function fetchWeatherData(location) {
   }
 }
 
-export let weatherData = await fetchWeatherData("Paris");
+let apiData = await fetchWeatherData("Paris");
 
-export function parseWeatherData(weatherData) {
-  const address = weatherData.address;
-  const temp = weatherData.currentConditions.temp;
-  const condition = weatherData.currentConditions.conditions;
-  const date = weatherData.days[0].datetime;
-  const time = weatherData.currentConditions.datetime;
-  const description = weatherData.description;
-  const hourlyTemps = weatherData.days[0].hours;
-  const dailyTemps = weatherData.days;
+function parseWeatherData(apiData) {
+  const address = apiData.address;
+  const temp = apiData.currentConditions.temp;
+  const condition = apiData.currentConditions.conditions;
+  const date = apiData.days[0].datetime;
+  const time = apiData.currentConditions.datetime;
+  const description = apiData.description;
+  const hourlyTemps = apiData.days[0].hours;
+  const dailyTemps = apiData.days;
 
   return {
     address,
@@ -33,3 +33,5 @@ export function parseWeatherData(weatherData) {
     dailyTemps,
   };
 }
+
+export const weatherData = parseWeatherData(apiData);
